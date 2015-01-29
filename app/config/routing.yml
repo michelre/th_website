@@ -1,0 +1,7 @@
+website:
+    resource: @WebsiteBundle/Controller/
+    type: annotation
+
+app:
+    resource: @ApiBundle/Controller/
+    type:     annotation

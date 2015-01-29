@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="table-container row">
+        <div class="column small-12">
+            <table class="column small-12">
+                <thead>
+                <th>Catégorie</th>
+                <th>Titre</th>
+                <th>Taille</th>
+                <th>Seeders</th>
+                <th>Leechers</th>
+                <th>Tracker</th>
+                </thead>
+                {% for data in torrents %}
+                    <tr>
+                        <td class="text-center"><i title="{{ data.torrent.category }}" class="{{ data.iconCategory }} fa-2x"></i></td>
+                        <td><a href="/torrent/{{ data.torrent.tracker }}/{{ data.torrent.slug }}">{{ data.torrent.title }}</a></td>
+                        <td>{{ data.torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</td>
+                        <td><i class="fa fa-arrow-up"></i>{{ data.torrent.seeds }}</td>
+                        <td><i class="fa fa-arrow-down"></i>{{ data.torrent.leechs }}</td>
+                        <td><img src="{{ asset('bundles/app/image/'~ data.torrent.tracker ~'-thumb.jpg' ) }}"/></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="pagination-centered">
+        <ul class="pagination">
+            {% if previousPage == 0 %}
+                <li class="unavailable arrow"><span>&laquo;</span></li>
+            {% else %}
+                <li class="arrow"><a href="/search?query={{ query }}&offset={{ previousPage }}">&laquo;</a></li>
+            {% endif %}
+            {%  for page in pages %}
+                {% if page == 0 %}
+                    <li class="unavailable"><span>&hellip;</span></li>
+                {% else %}
+                    <li><a href="/search?query={{ query }}&offset={{ page }}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if nextPage > nbMaxPages %}
+                <li class="unavailable arrow"><span>&raquo;</span></li>
+            {% else %}
+                <li class="arrow"><a href="/search?query={{ query }}&offset={{ nextPage }}">&raquo;</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ul class="pricing-table">
+        <li class="title">{{ torrent.title }}</li>
+        <li class="price">{{ torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</li>
+        <li class="description">Tracker: {{ torrent.tracker }}</li>
+        <li class="bullet-item">Catégorie: {{ torrent.category }}</li>
+        <li class="bullet-item">{{ torrent.seeds }} seeders</li>
+        <li class="bullet-item">{{ torrent.leechs }} leechers</li>
+        <li class="description">Lien original: <a href="{{ torrent.url }}">{{ torrent.url }}</a></li>
+        <li class="cta-button"><a rel="no-follow" href="{{ torrent.downloadLink }}" class="button" download>Télécharger</a></li>
+    </ul>
+
+    <div class="torrents-similar">
+        <h4>Ces fichiers peuvent vous intéresser:</h4>
+        <div class="table-container row">
+            <div class="column small-12">
+                <table class="column small-12">
+                    <thead>
+                    <th>Catégorie</th>
+                    <th>Titre</th>
+                    <th>Taille</th>
+                    <th>Seeders</th>
+                    <th>Leechers</th>
+                    <th>Tracker</th>
+                    </thead>
+                    <tbody>
+                    {% for torrent in similarTorrents %}
+                        <tr>
+                            <td class="text-center"><i title="{{ torrent.category }}" class="fa fa-{{ torrent.category }} fa-2x"></i></td>
+                            <td><a href="/torrent/{{ torrent.tracker }}/{{ torrent.slug }}">{{ torrent.title }}</a></td>
+                            <td>{{ torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</td>
+                            <td><i class="fa fa-arrow-up"></i>{{ torrent.seeds }}</td>
+                            <td><i class="fa fa-arrow-down"></i>{{ torrent.leechs }}</td>
+                            <td><img src="{{ asset('bundles/app/image/'~ torrent.tracker ~'-thumb.jpg' ) }}"/></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+<ul>
+    {%  for stat in stats %}
+        <li>
+            <div class="row">
+                <div class="columns large-6">
+                    <span class="columns large-6">Nombre de torrents ({{ stat.tracker }}):</span>
+                    <span class="columns large-6">{{ stat.nb | number_format(0, '.', ' ') }} (maj le {{ stat.lastIndexationDate | date("d/m/Y", "Europe/Paris") }})</span>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+    <li>
+        <div class="row">
+            <div class="columns large-6">
+                <span class="columns large-6">Nombre total de torrents:</span>
+                <span class="columns large-6">{{ nbTotal | number_format(0, '.', ' ') }}</span>
+            </div>
+        </div>
+    </li>
+</ul>

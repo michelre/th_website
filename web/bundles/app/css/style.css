@@ -1,0 +1,90 @@
+#header{
+    padding:10px;
+    margin-bottom: 20px;
+}
+
+#header form{
+    margin-top: 18px;
+}
+
+
+#header button{
+    background-color: #8F8F8F;
+}
+
+#header #categories{
+    margin-top: 20px;
+    margin-top: 20px;
+    border-top: 2px solid #8F8F8F;
+}
+
+#header #categories ul{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 10px;
+}
+
+#header #categories li a{
+    font-size: 20px;
+    color: #8F8F8F;
+}
+
+#header #categories li{
+    margin-left: 5em;
+}
+
+#footer{
+    margin-top: 10px;
+}
+
+
+#content .table-container table{
+    border: none;
+}
+
+#content .pagination span{
+    color: #999999;
+}
+
+#content .table-container{
+    max-width: none;
+}
+
+#content .table-container td{
+    min-width: 100px;
+}
+
+#content .table-container .fa{
+    margin-right: 5px;
+}
+
+#content .table-container .fa-arrow-up{
+    color: #61c66b;
+}
+
+#content .table-container .fa-arrow-down{
+    color: #c65045;
+}
+
+#content .pricing-table{
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+#content .torrents-similar h4{
+    margin-left: 20px;
+}
+
+#footer{
+    border-top: 2px solid #8F8F8F;
+}
+
+#footer{
+    color: #8F8F8F;
+}
+
+#footer ul{
+    list-style: none;
+    font-size: 12px;
+    margin-top: 10px;
+}

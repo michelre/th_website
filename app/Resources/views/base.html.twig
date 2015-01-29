@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Torrent Hunter - Agrégateur de tracker{% endblock %}</title>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('vendor/css/foundation.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}" />
+        {% endblock %}
+
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('vendor/js/vendor/jquery.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('vendor/js/vendor/modernizr.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/js/utils.js') }}"></script>
+        {% endblock %}
+
+
+    </head>
+    <body>
+
+        <div id="header">
+            <div class="row">
+                <div class="column small-6">
+                    <img src="{{ asset('bundles/app/image/logo-bw.png') }}"/>
+                </div>
+                <div class="column small-6">
+                    <form action="/search" method="GET">
+                        <div class="row collapse">
+                            <div class="small-11 columns">
+                                <input type="text" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
+                            </div>
+                            <div class="small-1 columns">
+                                <button type="submit" class="button radius postfix"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="categories" class="row">
+                <ul class="inline-list">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/torrents/movie">Film</a></li>
+                    <li><a href="/torrents/serie">Série</a></li>
+                    <li><a href="/torrents/music">Musique</a></li>
+                    <li><a href="/torrents/game">Jeux</a></li>
+                    <li><a href="/torrents/application">Application</a></li>
+                    <li><a href="/torrents/ebook">Ebook</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content">{% block body %}{% endblock %}</div>
+
+        <div id="footer" class="row">
+            {{ render(controller('WebsiteBundle:Default:footer')) }}
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var regex = new RegExp("offset=(.*)");
+        var currentPage = (regex.exec(window.location.search)) ? parseInt(regex.exec(window.location.search)[1]) : 1;
+        var utils = new Utils();
+        utils.setCurrentPage(currentPage);
+        //utils.stylingPagination();
+    </script>
+</html>
