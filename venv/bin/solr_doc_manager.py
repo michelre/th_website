@@ -1,1 +1,0 @@
-../mongo-connector-solr-doc-manager/solr_doc_manager.py
