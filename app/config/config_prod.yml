@@ -23,3 +23,12 @@ monolog:
             level: debug
         console:
             type:  console
+
+nelmio_solarium:
+    endpoints:
+        default:
+            dsn: http://localhost:8983/solr/collection1
+            timeout: 5
+    clients:
+        default:
+            endpoints: [default]

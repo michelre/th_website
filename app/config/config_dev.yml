@@ -44,5 +44,11 @@ monolog:
 assetic:
     use_controller: true
 
-#swiftmailer:
-#    delivery_address: me@example.com
+nelmio_solarium:
+    endpoints:
+        default:
+            dsn: http://92.222.40.151:8983/solr/collection1
+            timeout: 5
+    clients:
+        default:
+            endpoints: [default]
