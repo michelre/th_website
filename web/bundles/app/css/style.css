@@ -75,6 +75,15 @@
     margin-left: 20px;
 }
 
+#content .pricing-table .description a{
+    text-overflow: ellipsis;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 2px;
+}
+
 #footer{
     border-top: 2px solid #8F8F8F;
 }

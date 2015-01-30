@@ -75,7 +75,7 @@ class DefaultController
     }
 
     /**
-     * @Route("/torrent/{tracker}/{slug}")
+     * @Route("/torrent/{tracker}/{slug}", name="details")
      * @Method("GET")
      */
     public function torrentAction($tracker, $slug){
@@ -88,7 +88,7 @@ class DefaultController
     }
 
     /**
-     * @Route("/torrents/{category}")
+     * @Route("/torrents/{category}", name="torrentsPerCategory")
      * @Method("GET")
      */
     public function torrentsByCategoryAction($category, Request $request){
