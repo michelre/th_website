@@ -42,7 +42,7 @@
             {% if nextPage > nbMaxPages %}
                 <li class="unavailable arrow"><span>&raquo;</span></li>
             {% else %}
-                <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': nextPage}) }}">&laquo;</a></li>
+                <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': nextPage}) }}">&raquo;</a></li>
             {% endif %}
         </ul>
     </div>
