@@ -1,20 +1,29 @@
-<ul>
-    {%  for stat in stats %}
+<div class="row">
+    <ul class="columns large-3">
+        {%  for stat in stats %}
+            <li>
+                <div class="row">
+                    <span class="columns large-3">{{ stat.tracker }}:</span>
+                    <span class="columns large-9">{{ stat.nb | number_format(0, '.', ' ') }} (maj {{ stat.lastIndexationDate | date("d/m/Y", "Europe/Paris") }})</span>
+                </div>
+            </li>
+        {% endfor %}
         <li>
             <div class="row">
-                <div class="columns large-6">
-                    <span class="columns large-6">Nombre de torrents ({{ stat.tracker }}):</span>
-                    <span class="columns large-6">{{ stat.nb | number_format(0, '.', ' ') }} (maj le {{ stat.lastIndexationDate | date("d/m/Y", "Europe/Paris") }})</span>
-                </div>
+                <span class="columns large-3">Total:</span>
+                <span class="columns large-9">{{ nbTotal | number_format(0, '.', ' ') }}</span>
             </div>
         </li>
-    {% endfor %}
-    <li>
-        <div class="row">
-            <div class="columns large-6">
-                <span class="columns large-6">Nombre total de torrents:</span>
-                <span class="columns large-6">{{ nbTotal | number_format(0, '.', ' ') }}</span>
-            </div>
-        </div>
-    </li>
-</ul>
+    </ul>
+    <div class="columns large-9">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- torrent-hunter1 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:336px;height:280px"
+             data-ad-client="ca-pub-1672668279810586"
+             data-ad-slot="4799920956"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
