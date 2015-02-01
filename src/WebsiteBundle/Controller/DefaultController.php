@@ -110,7 +110,9 @@ class DefaultController
                   "nextPage" => ($offset + 1),
                   "nbMaxPages" => $nbMaxPages,
                   "category" => $category,
-                  "categoryIcon" => $utils->getCategoryIconName($category)));
+                  "categoryIcon" => $utils->getCategoryIconName($category),
+                  "categoryName" => $utils->getCategoryName($category)
+            ));
         return new Response($tpl);
     }
 

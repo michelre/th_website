@@ -27,7 +27,7 @@ class DefaultController
         $client = $this->solarium;
 
         $select = array(
-            'rows'  => 30,
+            'rows'  => 100,
             'sort'  => array('seeds' => 'desc')
         );
         $query = $client->createSelect($select);

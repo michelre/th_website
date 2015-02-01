@@ -88,4 +88,16 @@ class Utils
         return (array_key_exists($category, $icons)) ? $icons[$category] : $category;
     }
 
+    public function getCategoryName($categorySlug){
+        $categories = array(
+            "movie" => "Film",
+            "serie" => "Série",
+            "music" => "Musique",
+            "game"  => "Jeux",
+            "application" => "Application",
+            "ebook" => "Ebook"
+        );
+        return $categories[$categorySlug];
+    }
+
 } 

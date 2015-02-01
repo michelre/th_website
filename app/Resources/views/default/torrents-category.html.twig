@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <h1>{{ categoryName }}</h1>
     <div class="table-container row">
         <div class="column small-12">
             <table class="column small-12">
@@ -15,7 +16,7 @@
                 {% for torrent in torrents %}
                     <tr>
                         <td class="text-center"><i title="{{ torrent.category }}" class="{{ categoryIcon }} fa-2x"></i></td>
-                        <td><a href="/torrent/{{ torrent.tracker }}/{{ torrent.slug }}">{{ torrent.title }}</a></td>
+                        <td><a href="{{ path('details', {'tracker': torrent.tracker, 'slug': torrent.slug}) }}">{{ torrent.title }}</a></td>
                         <td>{{ torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</td>
                         <td><i class="fa fa-arrow-up"></i><span>{{ torrent.seeds }}</span></td>
                         <td><i class="fa fa-arrow-down"></i><span>{{ torrent.leechs }}</span></td>
@@ -30,19 +31,19 @@
             {% if previousPage == 0 %}
                 <li class="unavailable arrow"><span>&laquo;</span></li>
             {% else %}
-                <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': previousPage}) }}">&laquo;</a></li>
+                <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': previousPage}) }}">&laquo;</a></li>
             {% endif %}
             {%  for page in pages %}
                 {% if page == 0 %}
                     <li class="unavailable"><span>&hellip;</span></li>
                 {% else %}
-                    <li><a href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': page}) }}">{{ page }}</a></li>
+                    <li><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': page}) }}">{{ page }}</a></li>
                 {% endif %}
             {% endfor %}
             {% if nextPage > nbMaxPages %}
                 <li class="unavailable arrow"><span>&raquo;</span></li>
             {% else %}
-                <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': nextPage}) }}">&raquo;</a></li>
+                <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': nextPage}) }}">&raquo;</a></li>
             {% endif %}
         </ul>
     </div>

@@ -37,6 +37,9 @@
     margin-top: 10px;
 }
 
+#content h1{
+    margin-left: 35px;
+}
 
 #content .table-container table{
     border: none;
