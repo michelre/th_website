@@ -79,11 +79,15 @@ class DefaultController
      * @Method("GET")
      */
     public function torrentAction($tracker, $slug){
+        $utils = new Utils();
         $torrent = $this->solrService->torrentAction($tracker, $slug);
         $moreLikeThis = $this->solrService->searchSimilarAction($slug);
+        $similarTorrents = array_map(function($torrent) use(&$utils){
+            return array("torrent" => $torrent, "iconCategory" => $utils->getCategoryIconName($torrent["category"]));
+        }, $moreLikeThis);
         $tpl = $this->templating->render('default/torrent-detail.html.twig',
             array("torrent" => $torrent,
-                "similarTorrents" => $moreLikeThis));
+                "similarTorrents" => $similarTorrents));
         return new Response($tpl);
     }
 
