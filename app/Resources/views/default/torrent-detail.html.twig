@@ -33,7 +33,7 @@
                             <td>{{ data.torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</td>
                             <td><i class="fa fa-arrow-up"></i>{{ data.torrent.seeds }}</td>
                             <td><i class="fa fa-arrow-down"></i>{{ data.torrent.leechs }}</td>
-                            <td><img src="{{ asset('bundles/app/image/'~ data.torrent.tracker ~'-thumb.jpg' ) }}"/></td>
+                            <td><img alt="{{ data.torrent.tracker }}" title="{{ data.torrent.tracker }}" src="{{ asset('bundles/app/image/'~ data.torrent.tracker ~'-thumb.jpg' ) }}"/></td>
                         </tr>
                     {% endfor %}
                     </tbody>

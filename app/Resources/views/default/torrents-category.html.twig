@@ -20,7 +20,7 @@
                         <td>{{ torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</td>
                         <td><i class="fa fa-arrow-up"></i><span>{{ torrent.seeds }}</span></td>
                         <td><i class="fa fa-arrow-down"></i><span>{{ torrent.leechs }}</span></td>
-                        <td><img src="{{ asset('bundles/app/image/'~ torrent.tracker ~'-thumb.jpg' ) }}"/></td>
+                        <td><img alt="{{ torrent.tracker }}" title="{{ torrent.tracker }}" src="{{ asset('bundles/app/image/'~ torrent.tracker ~'-thumb.jpg' ) }}"/></td>
                     </tr>
                 {% endfor %}
             </table>
