@@ -13,9 +13,8 @@
             <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}" />
         {% endblock %}
 
-        {% block javascripts %}
+        {% block javascript %}
             <script type="text/javascript" src="{{ asset('vendor/js/vendor/jquery.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('vendor/js/vendor/modernizr.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/utils.js') }}"></script>
         {% endblock %}
 
@@ -23,22 +22,32 @@
     </head>
     <body>
 
-        <div id="header">
+    <div id="header">
             <div class="row">
                 <div class="column small-6">
                     <img src="{{ asset('bundles/app/image/logo-bw.png') }}"/>
                 </div>
                 <div class="column small-6">
-                    <form action="{{ path('search') }}" method="GET">
-                        <div class="row collapse">
-                            <div class="small-11 columns">
-                                <input type="text" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
+                    <div class="column small-9">
+                        <form action="{{ path('search') }}" method="GET">
+                            <div class="row collapse">
+                                <div class="small-11 columns">
+                                    <input type="text" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
+                                </div>
+                                <div class="small-1 columns">
+                                    <button type="submit" class="button radius postfix"><i class="fa fa-search"></i></button>
+                                </div>
                             </div>
-                            <div class="small-1 columns">
-                                <button type="submit" class="button radius postfix"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <div class="column small-3">
+                        <span class='st_sharethis_hcount' displayText='ShareThis'></span>
+                        <span class='st_facebook_hcount' displayText='Facebook'></span>
+                        <span class='st_twitter_hcount' displayText='Tweet'></span>
+                        <span class='st_linkedin_hcount' displayText='LinkedIn'></span>
+                        <span class='st_pinterest_hcount' displayText='Pinterest'></span>
+                        <span class='st_email_hcount' displayText='Email'></span>
+                    </div>
                 </div>
             </div>
             <div id="categories" class="row">
@@ -78,4 +87,6 @@
         ga('send', 'pageview');
 
     </script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54d927140dd9ae5d" async="async"></script>
 </html>
