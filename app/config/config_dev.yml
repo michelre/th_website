@@ -47,8 +47,8 @@ assetic:
 nelmio_solarium:
     endpoints:
         default:
-            dsn: http://92.222.40.151:8983/solr/collection1
+            host: michelre:ddeeffg38c@92.222.40.151
+            port: 8983
+            path: /solr
+            core: collection1
             timeout: 5
-    clients:
-        default:
-            endpoints: [default]
