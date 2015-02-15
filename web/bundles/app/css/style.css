@@ -108,3 +108,8 @@
 #footer .fb-like{
     margin-top: 10px;
 }
+
+/* OTHERS */
+.tt-suggestion strong{
+    color: #ff973c;
+}

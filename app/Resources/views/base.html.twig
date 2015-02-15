@@ -15,6 +15,7 @@
 
         {% block javascript %}
             <script type="text/javascript" src="{{ asset('vendor/js/vendor/jquery.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('vendor/js/typeahead/typeahead.bundle.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/utils.js') }}"></script>
         {% endblock %}
 
@@ -40,7 +41,7 @@
                         <form action="{{ path('search') }}" method="GET">
                             <div class="row collapse">
                                 <div class="small-11 columns">
-                                    <input type="text" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
+                                    <input type="text" class="no-clear search-typeahead typeahead" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
                                 </div>
                                 <div class="small-1 columns">
                                     <button type="submit" class="button radius postfix"><i class="fa fa-search"></i></button>
@@ -75,6 +76,43 @@
         var currentPage = (regex.exec(window.location.search)) ? parseInt(regex.exec(window.location.search)[1]) : 1;
         var utils = new Utils();
         utils.setCurrentPage(currentPage);
+
+        var engine = new Bloodhound({
+            remote: {
+                url: 'http://localhost/api/v1/search?query=%QUERY&offset=0&limit=10',
+                filter: function(resp){
+                    return resp.torrents.map(function(t){
+                        return {
+                            value: t.title
+                        }
+                    })
+                }
+            },
+            datumTokenizer: function(d) {
+                return Bloodhound.tokenizers.whitespace('value');
+            },
+            queryTokenizer: Bloodhound.tokenizers.whitespace
+        });
+        var promise = engine.initialize();
+        promise.done(function(){
+            $('.typeahead').typeahead(
+            {
+                highlight: true,
+                hint: false
+            },
+            {
+                displayKey: 'value',
+                source: engine.ttAdapter()
+            });
+            $('.twitter-typeahead').addClass(function(){
+                return 'small-12';
+            });
+            $('.tt-dropdown-menu').addClass(function(){
+                return 'large content f-dropdown small-12';
+            });
+        });
+
+
     </script>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
