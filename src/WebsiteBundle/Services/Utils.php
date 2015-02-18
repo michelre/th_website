@@ -100,4 +100,10 @@ class Utils
         return $categories[$categorySlug];
     }
 
+    public function makeTorrentsObject($torrents){
+        return array_map(function($torrent) use(&$utils){
+            return array("torrent" => $torrent, "categoryIcon" => $this->getCategoryIconName($torrent["category"]));
+        }, $torrents);
+    }
+
 } 

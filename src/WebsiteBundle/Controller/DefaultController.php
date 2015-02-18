@@ -38,9 +38,8 @@ class DefaultController
     {
         $utils = new Utils;
         $_torrents = $this->solrService->popularAction();
-        $torrents = array_map(function($torrent) use(&$utils){
-            return array("torrent" => $torrent, "categoryIcon" => $utils->getCategoryIconName($torrent["category"]));
-        }, $_torrents);
+        $torrents = $utils->makeTorrentsObject($_torrents);
+
         $tpl = $this->templating->render('default/index.html.twig', array("torrents" => $torrents));
 
         return new Response($tpl);
@@ -56,11 +55,11 @@ class DefaultController
         $limit = 25;
         $utils = new Utils();
         $result = $this->solrService->searchAction($query, $limit, $offset);
-        $torrents = array_map(function($torrent) use(&$utils){
-            return array("torrent" => $torrent, "iconCategory" => $utils->getCategoryIconName($torrent["category"]));
-        }, $result["torrents"]);
+        $torrents = $utils->makeTorrentsObject($result["torrents"]);
+
         $nbMaxPages = ($result["nbTorrentsFound"] > 10) ? 10 : $result["nbTorrentsFound"];
         $offset = ($offset < $nbMaxPages) ? $offset : $nbMaxPages;
+
         $tpl = $this->templating->render('default/search-results.html.twig',
             array("torrents" => $torrents,
                   "query" => $result["query"],
@@ -82,9 +81,8 @@ class DefaultController
         $utils = new Utils();
         $torrent = $this->solrService->torrentAction($tracker, $slug);
         $moreLikeThis = $this->solrService->searchSimilarAction($slug);
-        $similarTorrents = array_map(function($torrent) use(&$utils){
-            return array("torrent" => $torrent, "iconCategory" => $utils->getCategoryIconName($torrent["category"]));
-        }, $moreLikeThis);
+        $similarTorrents = $utils->makeTorrentsObject($moreLikeThis);
+
         $tpl = $this->templating->render('default/torrent-detail.html.twig',
             array("torrent" => $torrent,
                 "similarTorrents" => $similarTorrents));
@@ -101,7 +99,7 @@ class DefaultController
         $limit = 25;
         $nbMaxPages = 20;
         $offset = ($offset < $nbMaxPages) ? $offset : $nbMaxPages;
-        $torrents = $this->solrService->torrentsByCategoryAction($category, $offset, $limit);
+        $torrents = $utils->makeTorrentsObject($this->solrService->torrentsByCategoryAction($category, $offset, $limit));
 
         $tpl = $this->templating->render('default/torrents-category.html.twig',
             array("torrents" => $torrents,
