@@ -106,7 +106,7 @@ class DefaultController
         $nbMaxPages = 20;
         $offset = ($offset < $nbMaxPages) ? $offset : $nbMaxPages;
         $torrents = $utils->makeTorrentsObject($this->solrService->torrentsByCategoryAction($category, $offset, $limit));
-        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/torrents-category.html.twig" : "default/torrent-category.html.twig" ;
+        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/torrents-category.html.twig" : "default/torrents-category.html.twig" ;
 
         $tpl = $this->templating->render($templatePath,
             array("torrents" => $torrents,
