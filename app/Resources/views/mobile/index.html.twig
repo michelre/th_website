@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% import 'macros.html.twig' as macros %}
+
+{% block body %}
+
+    <h1>Top 100</h1>
+    {{ macros.torrents_table_mobile(torrents) }}
+
+{% endblock %}

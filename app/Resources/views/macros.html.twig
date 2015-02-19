@@ -24,3 +24,26 @@
         </div>
     </div>
 {% endmacro %}
+
+{% macro torrents_table_mobile(torrents) %}
+    <div class="table-container row">
+        <div class="column small-12">
+            <table class="column small-12">
+                <thead>
+                <th>Catégorie</th>
+                <th>Titre</th>
+                <th>Taille</th>
+                <th>Seeders</th>
+                </thead>
+                {% for data in torrents %}
+                    <tr>
+                        <td class="text-center"><i title="{{ data.torrent.category }}" class="{{ data.categoryIcon }} fa-2x"></i></td>
+                        <td><a href="{{ path('details', {'tracker': data.torrent.tracker, 'slug': data.torrent.slug}) }}">{{ data.torrent.title }}</a></td>
+                        <td>{{ data.torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</td>
+                        <td><i class="fa fa-arrow-up"></i>{{ data.torrent.seeds }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endmacro %}

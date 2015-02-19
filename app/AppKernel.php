@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new ApiBundle\ApiBundle(),
             new WebsiteBundle\WebsiteBundle(),
             new SolrServiceBundle\SolrServiceBundle(),
+            new SunCat\MobileDetectBundle\MobileDetectBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

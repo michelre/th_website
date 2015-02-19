@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="column small-3">
+        <img src="{{ asset('bundles/app/image/logo-bw.png') }}"/>
+    </div>
+    <div class="column small-9">
+        <div>
+            <form action="{{ path('search') }}" method="GET">
+                <div class="row collapse">
+                    <div class="small-11 columns">
+                        <input type="text" class="no-clear search-typeahead typeahead" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
+                    </div>
+                    <div class="small-1 columns">
+                        <button type="submit" class="button radius postfix"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<nav id="categories" class="row">
+    <ul class="inline-list">
+        <li><a class="fa fa-home fa-3x" href="{{ path('homepage') }}"></a></li>
+        <li><a class="fa fa-film fa-3x" href="{{ path('torrentsPerCategory', {'category': 'movie'}) }}"></a></li>
+        <li><a class="fa fa-desktop fa-3x" href="{{ path('torrentsPerCategory', {'category': 'serie'}) }}"></a></li>
+        <li><a class="fa fa-music fa-3x" href="{{ path('torrentsPerCategory', {'category': 'music'}) }}"></a></li>
+        <li><a class="fa fa-gamepad fa-3x" href="{{ path('torrentsPerCategory', {'category': 'game'}) }}"></a></li>
+        <li><a class="fa fa-windows fa-3x" href="{{ path('torrentsPerCategory', {'category': 'application'}) }}"></a></li>
+        <li><a class="fa fa-book fa-3x" href="{{ path('torrentsPerCategory', {'category': 'ebook'}) }}"></a></li>
+    </ul>
+</nav>

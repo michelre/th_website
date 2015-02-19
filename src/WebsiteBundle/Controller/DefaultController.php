@@ -19,15 +19,18 @@ class DefaultController
 
     private $solrService;
     private $templating;
+    private $mobileDetect;
     /**
      * @DI\InjectParams({
      *     "solrService" = @DI\Inject("solrService"),
-     *     "templating" = @DI\Inject("templating")
+     *     "templating" = @DI\Inject("templating"),
+     *     "mobileDetect" = @DI\Inject("mobile_detect.mobile_detector")
      * })
      */
-    public function __construct($solrService, $templating){
+    public function __construct($solrService, $templating, $mobileDetect){
         $this->solrService = $solrService;
         $this->templating = $templating;
+        $this->mobileDetect = $mobileDetect;
     }
 
     /**
@@ -40,7 +43,8 @@ class DefaultController
         $_torrents = $this->solrService->popularAction();
         $torrents = $utils->makeTorrentsObject($_torrents);
 
-        $tpl = $this->templating->render('default/index.html.twig', array("torrents" => $torrents));
+        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/index.html.twig" : "default/index.html.twig" ;
+        $tpl = $this->templating->render($templatePath, array("torrents" => $torrents));
 
         return new Response($tpl);
     }
@@ -60,7 +64,8 @@ class DefaultController
         $nbMaxPages = ($result["nbTorrentsFound"] > 10) ? 10 : $result["nbTorrentsFound"];
         $offset = ($offset < $nbMaxPages) ? $offset : $nbMaxPages;
 
-        $tpl = $this->templating->render('default/search-results.html.twig',
+        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/search-results.html.twig" : "default/search-results.html.twig" ;
+        $tpl = $this->templating->render($templatePath,
             array("torrents" => $torrents,
                   "query" => $result["query"],
                   "pages" => $utils->createPagination($nbMaxPages, $offset),
@@ -83,7 +88,8 @@ class DefaultController
         $moreLikeThis = $this->solrService->searchSimilarAction($slug);
         $similarTorrents = $utils->makeTorrentsObject($moreLikeThis);
 
-        $tpl = $this->templating->render('default/torrent-detail.html.twig',
+        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/torrent-detail.html.twig" : "default/torrent-detail.html.twig" ;
+        $tpl = $this->templating->render($templatePath,
             array("torrent" => $torrent,
                 "similarTorrents" => $similarTorrents));
         return new Response($tpl);
@@ -100,8 +106,9 @@ class DefaultController
         $nbMaxPages = 20;
         $offset = ($offset < $nbMaxPages) ? $offset : $nbMaxPages;
         $torrents = $utils->makeTorrentsObject($this->solrService->torrentsByCategoryAction($category, $offset, $limit));
+        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/torrents-category.html.twig" : "default/torrent-category.html.twig" ;
 
-        $tpl = $this->templating->render('default/torrents-category.html.twig',
+        $tpl = $this->templating->render($templatePath,
             array("torrents" => $torrents,
                   "pages" => $utils->createPagination($nbMaxPages, $offset),
                   "previousPage" => ($offset - 1),
@@ -114,10 +121,16 @@ class DefaultController
         return new Response($tpl);
     }
 
-    public function footerAction(){
-        $tpl = $this->templating->render('footer.html.twig', $this->solrService->statsTrackersAction());
+    public function headerAction(){
+        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/header.html.twig" : "default/header.html.twig" ;
+        $tpl = $this->templating->render($templatePath, $this->solrService->statsTrackersAction());
         return new Response($tpl);
+    }
 
+    public function footerAction(){
+        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/footer.html.twig" : "default/footer.html.twig" ;
+        $tpl = $this->templating->render($templatePath, $this->solrService->statsTrackersAction());
+        return new Response($tpl);
     }
 
 }

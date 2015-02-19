@@ -15,6 +15,7 @@
 
         {% block javascript %}
             <script type="text/javascript" src="{{ asset('vendor/js/vendor/jquery.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('vendor/js/vendor/foundation.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('vendor/js/typeahead/typeahead.bundle.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/utils.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/bootstrap.js') }}"></script>
@@ -32,47 +33,20 @@
             js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.0";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-    <div id="header">
-            <div class="row">
-                <div class="column small-5">
-                    <img src="{{ asset('bundles/app/image/logo-bw.png') }}"/>
-                </div>
-                <div class="column small-7">
-                    <div>
-                        <form action="{{ path('search') }}" method="GET">
-                            <div class="row collapse">
-                                <div class="small-11 columns">
-                                    <input type="text" class="no-clear search-typeahead typeahead" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
-                                </div>
-                                <div class="small-1 columns">
-                                    <button type="submit" class="button radius postfix"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div id="categories" class="row">
-                <ul class="inline-list">
-                    <li><a href="{{ path('homepage') }}">Accueil</a></li>
-                    <li><a href="{{ path('torrentsPerCategory', {'category': 'movie'}) }}">Film</a></li>
-                    <li><a href="{{ path('torrentsPerCategory', {'category': 'serie'}) }}">Série</a></li>
-                    <li><a href="{{ path('torrentsPerCategory', {'category': 'music'}) }}">Musique</a></li>
-                    <li><a href="{{ path('torrentsPerCategory', {'category': 'game'}) }}">Jeux</a></li>
-                    <li><a href="{{ path('torrentsPerCategory', {'category': 'application'}) }}">Application</a></li>
-                    <li><a href="{{ path('torrentsPerCategory', {'category': 'ebook'}) }}">Ebook</a></li>
-                </ul>
-            </div>
-        </div>
 
-        <div id="content">{% block body %}{% endblock %}</div>
+        <section id="header">
+            {{ render(controller('WebsiteBundle:Default:header')) }}
+        </section>
 
-        <div id="footer" class="row">
+        <section id="content">{% block body %}{% endblock %}</section>
+
+        <section id="footer" class="row">
             {{ render(controller('WebsiteBundle:Default:footer')) }}
-        </div>
+        </section>
     </body>
 
     <script type="text/javascript">
+        $(document).foundation();
         var regex = new RegExp("offset=(.*)");
         var currentPage = (regex.exec(window.location.search)) ? parseInt(regex.exec(window.location.search)[1]) : 1;
         var utils = new Utils();

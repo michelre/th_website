@@ -25,7 +25,6 @@
 }
 
 #header #categories li a{
-    font-size: 20px;
     color: #8F8F8F;
 }
 
@@ -87,6 +86,17 @@
     margin-top: 2px;
 }
 
+#content h1.download-title{
+    /* essential */
+    text-overflow: ellipsis;
+    width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    /* for good looks */
+    padding: 10px;
+}
+
 #footer{
     border-top: 2px solid #8F8F8F;
 }
@@ -107,6 +117,12 @@
 
 #footer .fb-like{
     margin-top: 10px;
+}
+
+#footer .stats{
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 20px;
 }
 
 /* OTHERS */

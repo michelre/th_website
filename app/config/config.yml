@@ -30,6 +30,13 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+#Mobile detect configuration
+mobile_detect:
+    redirect:
+        mobile: ~
+        tablet: ~
+    switch_device_view: ~
+
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
