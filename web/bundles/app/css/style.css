@@ -3,6 +3,10 @@
     margin-bottom: 20px;
 }
 
+#header .logo{
+    margin-top: 12px;
+}
+
 #header form{
     margin-top: 18px;
 }
