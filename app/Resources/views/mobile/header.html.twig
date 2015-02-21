@@ -1,16 +1,13 @@
 <div class="row">
-    <div class="column small-3">
-        <img class="logo" alt="logo" title="logo" src="{{ asset('bundles/app/image/logo-bw.png') }}"/>
-    </div>
-    <div class="column small-9">
+    <div class="column small-12">
         <div>
             <form action="{{ path('search') }}" method="GET">
                 <div class="row collapse">
                     <div class="small-11 columns">
-                        <input type="text" class="no-clear search-typeahead typeahead" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
+                        <input type="text" class="no-clear search-typeahead typeahead mobile-form" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
                     </div>
                     <div class="small-1 columns">
-                        <button type="submit" class="button radius postfix"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="btn-mobile button radius postfix"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </form>

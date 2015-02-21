@@ -153,6 +153,10 @@
     border: 2px solid #EEEEEE;
 }
 
+#content .torrent-list-mobile > li:last-child{
+    border-bottom: 2px solid #EEEEEE;
+}
+
 #content .torrent-list-mobile strong{
     display: block;
     font-size: 30px;
@@ -171,5 +175,19 @@
 }
 
 #content .torrent-list-mobile .fa-chevron-right{
+    font-size: 40px;
+}
+
+#header .mobile-form{
+    height: 60px;
+    font-size: 33px;
+}
+
+#header .btn-mobile{
+    height: 60px;
+    font-size: 33px;
+}
+
+#content .mobile-pagination a, #content .mobile-pagination span{
     font-size: 40px;
 }

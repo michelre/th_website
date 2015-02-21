@@ -5,26 +5,20 @@
 
 {% block body %}
     <h1>Résultats pour "{{ query }}"</h1>
+
     {{ macros.torrents_table_mobile(torrents) }}
 
-    <div class="pagination-centered">
+    <div class="pagination-centered mobile-pagination">
         <ul class="pagination">
             {% if previousPage == 0 %}
-                <li class="unavailable arrow"><span>&laquo;</span></li>
+                <li class="unavailable arrow column small-5"><span>&laquo; Précédent</span></li>
             {% else %}
-                <li class="arrow"><a href="{{ path('search', {'query': query, 'offset': previousPage}) }}">&laquo;</a></li>
+                <li class="arrow column small-5"><a href="{{ path('search', {'query': query, 'offset': previousPage}) }}">&laquo; Précédent</a></li>
             {% endif %}
-            {%  for page in pages %}
-                {% if page == 0 %}
-                    <li class="unavailable"><span>&hellip;</span></li>
-                {% else %}
-                    <li><a href="{{ path('search', {'query': query, 'offset': page}) }}">{{ page }}</a></li>
-                {% endif %}
-            {% endfor %}
             {% if nextPage > nbMaxPages %}
-                <li class="unavailable arrow"><span>&raquo;</span></li>
+                <li class="unavailable arrow column small-5"><span>Suivant &raquo;</span></li>
             {% else %}
-                <li class="arrow"><a href="{{ path('search', {'query': query, 'offset': nextPage}) }}">&raquo;</a></li>
+                <li class="arrow column small-5"><a href="{{ path('search', {'query': query, 'offset': nextPage}) }}">Suivant &raquo;</a></li>
             {% endif %}
         </ul>
     </div>
