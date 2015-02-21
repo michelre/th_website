@@ -134,8 +134,9 @@
     color: #ff973c;
 }
 
-.torrent-list-mobile{
+.torrent-list-mobile > li{
     border: 2px solid #EEEEEE;
+    padding-bottom: 20px;
 }
 
 .torrent-list-mobile strong{
