@@ -135,27 +135,39 @@
 }
 
 #content .torrent-list-mobile > li{
-    border: 2px solid #EEEEEE;
+    list-style: none;
     padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+#content .torrent-list-mobile > li{
+    border-right: 2px solid #EEEEEE;
+    border-left: 2px solid #EEEEEE;
+}
+
+#content .torrent-list-mobile > li:first-child{
+    border-top: 2px solid #EEEEEE;
+}
+
+#content .torrent-list-mobile > li:nth-child(2n){
+    border: 2px solid #EEEEEE;
 }
 
 #content .torrent-list-mobile strong{
     display: block;
-    font-size: 25px;
+    font-size: 30px;
     text-overflow: ellipsis;
-    width: 95%;
     white-space: nowrap;
     overflow: hidden;
-    padding: 10px;
 }
 
 #content .torrent-list-mobile ul li{
     list-style: none;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 #content .torrent-list-mobile .center{
-    margin-top: 65px;
+    margin-top: 35px;
 }
 
 #content .torrent-list-mobile .fa-chevron-right{
