@@ -64,11 +64,11 @@
     margin-right: 5px;
 }
 
-#content .table-container .fa-arrow-up{
+#content .table-container .fa-arrow-up, #content .torrent-list-mobile .fa-arrow-up{
     color: #61c66b;
 }
 
-#content .table-container .fa-arrow-down{
+#content .table-container .fa-arrow-down, #content .torrent-list-mobile .fa-arrow-down{
     color: #c65045;
 }
 
@@ -134,12 +134,12 @@
     color: #ff973c;
 }
 
-.torrent-list-mobile > li{
+#content .torrent-list-mobile > li{
     border: 2px solid #EEEEEE;
     padding-bottom: 20px;
 }
 
-.torrent-list-mobile strong{
+#content .torrent-list-mobile strong{
     display: block;
     font-size: 25px;
     text-overflow: ellipsis;
@@ -149,15 +149,15 @@
     padding: 10px;
 }
 
-.torrent-list-mobile ul li{
+#content .torrent-list-mobile ul li{
     list-style: none;
     font-size: 20px;
 }
 
-.torrent-list-mobile .center{
+#content .torrent-list-mobile .center{
     margin-top: 65px;
 }
 
-.torrent-list-mobile .fa-chevron-right{
+#content .torrent-list-mobile .fa-chevron-right{
     font-size: 40px;
 }
