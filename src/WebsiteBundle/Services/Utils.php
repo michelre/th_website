@@ -49,7 +49,8 @@ class Utils
             "Screener" => "fa fa-film",
             "R5 / DVDScreener" => "fa fa-film",
             "films" => "fa fa-film",
-            "movie" => "fa fa-film"
+            "movie" => "fa fa-film",
+            "Anime" => "fa fa-film"
         );
         $iconsMusic = array(
             "Albums" => "fa fa-music",
@@ -65,6 +66,7 @@ class Utils
             "Série VOSTFR" => "fa fa-desktop",
             "Pack Série" => "fa fa-desktop",
             "serie" => "fa fa-desktop",
+            "series" => "fa fa-desktop",
             "Series" => "fa fa-desktop"
         );
         $iconsGame = array(

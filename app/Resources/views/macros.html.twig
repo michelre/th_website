@@ -26,24 +26,23 @@
 {% endmacro %}
 
 {% macro torrents_table_mobile(torrents) %}
-    <div class="table-container row">
-        <div class="column small-12">
-            <table class="column small-12">
-                <thead>
-                <th>Catégorie</th>
-                <th>Titre</th>
-                <th>Taille</th>
-                <th>Seeders</th>
-                </thead>
-                {% for data in torrents %}
-                    <tr>
-                        <td class="text-center"><i title="{{ data.torrent.category }}" class="{{ data.categoryIcon }} fa-2x"></i></td>
-                        <td><a href="{{ path('details', {'tracker': data.torrent.tracker, 'slug': data.torrent.slug}) }}">{{ data.torrent.title }}</a></td>
-                        <td>{{ data.torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</td>
-                        <td><i class="fa fa-arrow-up"></i>{{ data.torrent.seeds }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-        </div>
-    </div>
+    <ul class="torrent-list-mobile">
+        {% for data in torrents %}
+            <li class="row">
+                <i class="center column small-1 {{ data.categoryIcon }} fa-2x"></i>
+                <div class="column small-9">
+                    <strong>{{ data.torrent.title | title }}</strong>
+                    <ul>
+                        <li>{{ data.torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</li>
+                        <li><i class="fa fa-arrow-up"></i> {{ data.torrent.seeds }}</li>
+                        <li><i class="fa fa-arrow-down"></i> {{ data.torrent.leechs }}</li>
+                    </ul>
+                </div>
+                <a class="center text-right column small-2" href="{{ path('details', {'tracker': data.torrent.tracker, 'slug': data.torrent.slug}) }}">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </li>
+
+        {% endfor %}
+    </ul>
 {% endmacro %}

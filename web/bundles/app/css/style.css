@@ -133,3 +133,30 @@
 .tt-suggestion strong{
     color: #ff973c;
 }
+
+.torrent-list-mobile{
+    border: 2px solid #EEEEEE;
+}
+
+.torrent-list-mobile strong{
+    display: block;
+    font-size: 25px;
+    text-overflow: ellipsis;
+    width: 95%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.torrent-list-mobile ul li{
+    list-style: none;
+    font-size: 20px;
+}
+
+.torrent-list-mobile .center{
+    margin-top: 65px;
+}
+
+.torrent-list-mobile .fa-chevron-right{
+    font-size: 40px;
+}
