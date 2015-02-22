@@ -1,0 +1,193 @@
+#header{
+    padding:10px;
+    margin-bottom: 20px;
+}
+
+#header .logo{
+    margin-top: 12px;
+}
+
+#header form{
+    margin-top: 18px;
+}
+
+
+#header button{
+    background-color: #8F8F8F;
+}
+
+#header #categories{
+    margin-top: 20px;
+    margin-top: 20px;
+    border-top: 2px solid #8F8F8F;
+}
+
+#header #categories ul{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 10px;
+}
+
+#header #categories li a{
+    color: #8F8F8F;
+}
+
+#header #categories li{
+    margin-left: 5em;
+}
+
+#footer{
+    margin-top: 10px;
+}
+
+#content h1{
+    margin-left: 35px;
+}
+
+#content .table-container table{
+    border: none;
+}
+
+#content .pagination span{
+    color: #999999;
+}
+
+#content .table-container{
+    max-width: none;
+}
+
+#content .table-container td{
+    min-width: 100px;
+}
+
+#content .table-container .fa{
+    margin-right: 5px;
+}
+
+#content .table-container .fa-arrow-up, #content .torrent-list-mobile .fa-arrow-up{
+    color: #61c66b;
+}
+
+#content .table-container .fa-arrow-down, #content .torrent-list-mobile .fa-arrow-down{
+    color: #c65045;
+}
+
+#content .pricing-table{
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+#content .torrents-similar h2{
+    margin-left: 20px;
+}
+
+#content .pricing-table .description a{
+    text-overflow: ellipsis;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+#content h1.download-title{
+    /* essential */
+    text-overflow: ellipsis;
+    width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    /* for good looks */
+    padding: 10px;
+}
+
+#footer{
+    border-top: 2px solid #8F8F8F;
+}
+
+#footer{
+    color: #8F8F8F;
+}
+
+#footer ul{
+    list-style: none;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+#footer .advertisement{
+    margin-top: 10px;
+}
+
+#footer .fb-like{
+    margin-top: 10px;
+}
+
+#footer .stats{
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+/* OTHERS */
+.tt-suggestion strong{
+    color: #ff973c;
+}
+
+#content .torrent-list-mobile > li{
+    list-style: none;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+#content .torrent-list-mobile > li{
+    border-right: 2px solid #EEEEEE;
+    border-left: 2px solid #EEEEEE;
+}
+
+#content .torrent-list-mobile > li:first-child{
+    border-top: 2px solid #EEEEEE;
+}
+
+#content .torrent-list-mobile > li:nth-child(2n){
+    border: 2px solid #EEEEEE;
+}
+
+#content .torrent-list-mobile > li:last-child{
+    border-bottom: 2px solid #EEEEEE;
+}
+
+#content .torrent-list-mobile strong{
+    display: block;
+    font-size: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#content .torrent-list-mobile ul li{
+    list-style: none;
+    font-size: 25px;
+}
+
+#content .torrent-list-mobile .center{
+    margin-top: 35px;
+}
+
+#content .torrent-list-mobile .fa-chevron-right{
+    font-size: 40px;
+}
+
+#header .mobile-form{
+    height: 60px;
+    font-size: 33px;
+}
+
+#header .btn-mobile{
+    height: 60px;
+    font-size: 33px;
+}
+
+#content .mobile-pagination a, #content .mobile-pagination span{
+    font-size: 40px;
+}
