@@ -91,7 +91,8 @@ class DefaultController
         $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/torrent-detail.html.twig" : "default/torrent-detail.html.twig" ;
         $tpl = $this->templating->render($templatePath,
             array("torrent" => $torrent,
-                "similarTorrents" => $similarTorrents));
+                  "similarTorrents" => $similarTorrents,
+                  "formattedTitle" => $utils->formatTitle($torrent['title'])));
         return new Response($tpl);
     }
 

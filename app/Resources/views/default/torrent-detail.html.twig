@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% import  'macros.html.twig' as macros %}
 
-{% block title %} {{ parent() }} - Détail: {{ torrent.title }}{% endblock %}
+{% block title %} Torrent de {{ formattedTitle | title }} à télécharger {% endblock %}
 
 {% block body %}
     <h1>{{ torrent.title }}</h1>

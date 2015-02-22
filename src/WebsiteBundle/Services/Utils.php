@@ -7,6 +7,7 @@
  */
 
 namespace WebsiteBundle\Services;
+use Cocur\Slugify\Slugify;
 
 
 class Utils
@@ -106,6 +107,27 @@ class Utils
         return array_map(function($torrent) use(&$utils){
             return array("torrent" => $torrent, "categoryIcon" => $this->getCategoryIconName($torrent["category"]));
         }, $torrents);
+    }
+
+    public function formatTitle($title){
+        $slugify = new Slugify("/([^a-z0-9'.]|-)+/");
+        $stopWords = array("dvdscr", "720p", "1080p", "dvdrip", "brrip", "hdrip", "xvid", "cam", "limited", "mkv",
+                           "hc", "bdrip", "x264", "ld", "hdtv", "rnt", "web", "mp3", "bluworld", "itunes", "mp3vbr",
+                           "codex", "reloaded", "flt", "prophet", "skidrow", "mephisto", "dlc", "nosteam", "cracked", "hd",
+                           "amd64", "bg", "dvd", "64bit", "x86_64", "x86", "x64");
+        $tokens = explode("-", $slugify->slugify($title));
+        $formattedTitle = '';
+        $i = 0;
+        $found = false;
+        while($i < sizeof($tokens) && !$found){
+            $current = $tokens[$i];
+            if(!in_array($current, $stopWords))
+                $formattedTitle .= " " . $current;
+            else
+                $found = true;
+            $i += 1;
+        }
+        return trim($formattedTitle);
     }
 
 } 
