@@ -49,3 +49,14 @@
         {% endfor %}
     </ul>
 {% endmacro %}
+
+{% macro makePaginationLinkTag(previousPage, nextPage, nbMaxPages, hrefPrevious, hrefNext) %}
+    {% if(previousPage == 0) %}
+        <link rel="next" href="{{ hrefNext }}">
+    {% elseif(nextPage >= nbMaxPages) %}
+        <link rel="prev" href="{{ hrefPrevious }}">
+    {% else %}
+        <link rel="prev" href="{{ hrefPrevious }}">
+        <link rel="next" href="{{ hrefNext }}">
+    {% endif %}
+{% endmacro %}

@@ -104,10 +104,10 @@ class DefaultController
         );
         $query = $client->createSelect($select);
         $result = $client->select($query);
-        $torrent = $service->convertCategoryDocuments($result->getData()['response']['docs']);
-        $torrent = $service->removeFieldsDocuments($torrent, array("_version_", "_id", "score"));
+        $torrents = $service->convertCategoryDocuments($result->getData()['response']['docs']);
+        $torrents = $service->removeFieldsDocuments($torrents, array("_version_", "_id", "score"));
 
-        return $torrent;
+        return array('numFound' => $result->getData()['response']['numFound'], 'torrents' => $torrents);
     }
 
     public function statsTrackersAction(){

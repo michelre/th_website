@@ -1,6 +1,11 @@
 {% extends 'base.html.twig' %}
 {% import  'macros.html.twig' as macros %}
 
+{% block head %}
+    {{ macros.makePaginationLinkTag(previousPage, nextPage, nbMaxPages, path('torrentsPerCategory', {'category': category, 'offset': previousPage}), path('torrentsPerCategory', {'category': category, 'offset': nextPage})) }}
+    <meta name="description" content="Trouvez plus facilement vos {{ category | replace({"movie": "films", "serie": "séries", "music": "musiques", "game":"jeux", "application": "applications", "ebook":"ebooks"}) }} à télécharger grâce à Torrent-Hunter"/>
+{% endblock %}
+
 {% block title %} Torrent de {{ categoryName }} à télécharger{% endblock %}
 
 {% block body %}

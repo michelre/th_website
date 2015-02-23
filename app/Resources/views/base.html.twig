@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% block head %}{% endblock %}
         <meta charset="UTF-8" />
-        <meta name="description" content="Agrégateur de différents trackers vous permettant de trouver plus
-        facilement vos torrents." />
         <meta name="google-site-verification" content="OaOsT4VW7wpr6hVrqOOeCMQNfFzM3wjK-T8pK8A4g7U" />
         <title>{% block title %}Torrent Hunter - Agrégateur de tracker{% endblock %}</title>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -20,8 +19,6 @@
             <script type="text/javascript" src="{{ asset('bundles/app/js/utils.js') }}"></script>
             <script type="text/javascript" src="{{ asset('bundles/app/js/bootstrap.js') }}"></script>
         {% endblock %}
-
-
     </head>
     <body>
 

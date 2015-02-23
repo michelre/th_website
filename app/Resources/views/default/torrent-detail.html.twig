@@ -3,6 +3,10 @@
 
 {% block title %} Torrent de {{ formattedTitle | title }} à télécharger {% endblock %}
 
+{% block head %}
+    <meta name="description" content="Téléchargez {{ torrent.title }} ainsi que d'autres torrents"/>
+{% endblock %}
+
 {% block body %}
     <h1>{{ torrent.title }}</h1>
     <ul class="pricing-table">

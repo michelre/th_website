@@ -1,6 +1,13 @@
 {% extends 'base.html.twig' %}
 {% import 'macros.html.twig' as macros %}
 
+{% block head %}
+    {% if(nbMaxPages > 1) %}
+        {{ macros.makePaginationLinkTag(previousPage, nextPage, nbMaxPages, path('search', {'query': query, 'offset': previousPage}), path('search', {'query': query, 'offset': nextPage})) }}
+    {% endif %}
+    <meta name="description" content="Téléchargez les torrents correspondant à {{ query }}"/>
+{% endblock %}
+
 {% block title %} Torrents correspondant à {{ query }}{% endblock %}
 
 {% block body %}

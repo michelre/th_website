@@ -104,9 +104,9 @@ class DefaultController
         $utils = new Utils();
         $offset = ($request->query->get("offset")) ? abs($request->query->get("offset")) : 1;
         $limit = 25;
-        $nbMaxPages = 20;
-        $offset = ($offset < $nbMaxPages) ? $offset : $nbMaxPages;
-        $torrents = $utils->makeTorrentsObject($this->solrService->torrentsByCategoryAction($category, $offset, $limit));
+        $result = $this->solrService->torrentsByCategoryAction($category, $offset, $limit);
+        $nbMaxPages = ceil($result['numFound'] / $limit);
+        $torrents = $utils->makeTorrentsObject($result['torrents']);
         $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/torrents-category.html.twig" : "default/torrents-category.html.twig" ;
 
         $tpl = $this->templating->render($templatePath,
