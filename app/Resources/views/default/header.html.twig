@@ -20,11 +20,11 @@
 <nav id="categories" class="row">
     <ul class="inline-list">
         <li><a href="{{ path('homepage') }}">Accueil</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'movie'}) }}">Film</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'serie'}) }}">Série</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'music'}) }}">Musique</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'game'}) }}">Jeux</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'application'}) }}">Application</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'ebook'}) }}">Ebook</a></li>
+        <li><a href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': 1}) }}">Film</a></li>
+        <li><a href="{{ path('torrentsPerCategory', {'category': 'serie', 'offset': 1}) }}">Série</a></li>
+        <li><a href="{{ path('torrentsPerCategory', {'category': 'music', 'offset': 1}) }}">Musique</a></li>
+        <li><a href="{{ path('torrentsPerCategory', {'category': 'game', 'offset': 1}) }}">Jeux</a></li>
+        <li><a href="{{ path('torrentsPerCategory', {'category': 'application', 'offset': 1}) }}">Application</a></li>
+        <li><a href="{{ path('torrentsPerCategory', {'category': 'ebook', 'offset': 1}) }}">Ebook</a></li>
     </ul>
 </nav>

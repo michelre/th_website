@@ -17,11 +17,11 @@
 <nav id="categories" class="row">
     <ul class="inline-list">
         <li><a class="fa fa-home fa-3x" href="{{ path('homepage') }}"></a></li>
-        <li><a class="fa fa-film fa-3x" href="{{ path('torrentsPerCategory', {'category': 'movie'}) }}"></a></li>
-        <li><a class="fa fa-desktop fa-3x" href="{{ path('torrentsPerCategory', {'category': 'serie'}) }}"></a></li>
-        <li><a class="fa fa-music fa-3x" href="{{ path('torrentsPerCategory', {'category': 'music'}) }}"></a></li>
-        <li><a class="fa fa-gamepad fa-3x" href="{{ path('torrentsPerCategory', {'category': 'game'}) }}"></a></li>
-        <li><a class="fa fa-windows fa-3x" href="{{ path('torrentsPerCategory', {'category': 'application'}) }}"></a></li>
-        <li><a class="fa fa-book fa-3x" href="{{ path('torrentsPerCategory', {'category': 'ebook'}) }}"></a></li>
+        <li><a class="fa fa-film fa-3x" href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': 1}) }}"></a></li>
+        <li><a class="fa fa-desktop fa-3x" href="{{ path('torrentsPerCategory', {'category': 'serie', 'offset': 1}) }}"></a></li>
+        <li><a class="fa fa-music fa-3x" href="{{ path('torrentsPerCategory', {'category': 'music', 'offset': 1}) }}"></a></li>
+        <li><a class="fa fa-gamepad fa-3x" href="{{ path('torrentsPerCategory', {'category': 'game', 'offset': 1}) }}"></a></li>
+        <li><a class="fa fa-windows fa-3x" href="{{ path('torrentsPerCategory', {'category': 'application', 'offset': 1}) }}"></a></li>
+        <li><a class="fa fa-book fa-3x" href="{{ path('torrentsPerCategory', {'category': 'ebook', 'offset': 1}) }}"></a></li>
     </ul>
 </nav>
