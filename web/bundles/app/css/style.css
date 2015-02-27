@@ -191,3 +191,7 @@
 #content .mobile-pagination a, #content .mobile-pagination span{
     font-size: 40px;
 }
+
+#header .pub-header{
+    margin-top: 13px;
+}
