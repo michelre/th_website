@@ -8,17 +8,24 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ torrent.title }}</h1>
-    <ul class="pricing-table">
-        <li class="title">Détails</li>
-        <li class="price">{{ torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</li>
-        <li class="description">Tracker: {{ torrent.tracker }}</li>
-        <li class="bullet-item">Catégorie: {{ torrent.category }}</li>
-        <li class="bullet-item">{{ torrent.seeds }} seeders</li>
-        <li class="bullet-item">{{ torrent.leechs }} leechers</li>
-        <li class="description"><span>Lien original: </span><a href="{{ torrent.url }}">{{ torrent.url }}</a></li>
-        <li class="cta-button"><a rel="no-follow" href="{{ torrent.downloadLink }}" class="button" download>Télécharger</a></li>
-    </ul>
+    <div class="row">
+        <div class="column large-10">
+            <h1>{{ torrent.title }}</h1>
+            <ul class="pricing-table">
+                <li class="title">Détails</li>
+                <li class="price">{{ torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</li>
+                <li class="description">Tracker: {{ torrent.tracker }}</li>
+                <li class="bullet-item">Catégorie: {{ torrent.category }}</li>
+                <li class="bullet-item">{{ torrent.seeds }} seeders</li>
+                <li class="bullet-item">{{ torrent.leechs }} leechers</li>
+                <li class="description"><span>Lien original: </span><a href="{{ torrent.url }}">{{ torrent.url }}</a></li>
+                <li class="cta-button"><a rel="no-follow" href="{{ torrent.downloadLink }}" class="button" download>Télécharger</a></li>
+            </ul>
+        </div>
+        <div class="column large-2">
+            <script src="http://www.pubdirecte.com/script/banniere.php?id=103893&ref=69514"></script>
+        </div>
+    </div>
 
     <div class="torrents-similar">
         <h2>Ces fichiers peuvent vous intéresser:</h2>
