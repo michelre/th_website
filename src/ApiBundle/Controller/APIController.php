@@ -2,6 +2,7 @@
 
 namespace ApiBundle\Controller;
 
+use CrawlerBundle\CrawlerBundle;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -18,14 +19,17 @@ class APIController
 {
 
     protected $solrService;
+    protected $crawlerTrackersService;
 
     /**
      * @DI\InjectParams({
-     *     "solrService" = @DI\Inject("solrService")
+     *     "solrService" = @DI\Inject("solrService"),
+     *     "mainController" = @DI\Inject("main_controller")
      * })
      */
-    public function __construct(\SolrServiceBundle\Controller\DefaultController $solrService){
+    public function __construct(\SolrServiceBundle\Controller\DefaultController $solrService, \CrawlerBundle\Controller\DefaultController $mainController){
         $this->solrService = $solrService;
+        $this->crawlerTrackersService = $mainController;
     }
 
     /**
@@ -49,7 +53,10 @@ class APIController
                 "description" => "Retrieve all documents that are similar to a specific file"),
             array("url" => "/api/{version}/torrents/{category}[?offset={int}&limit={int}]",
                 "method" => "GET",
-                "description" => "Retrieve torrents per categories")
+                "description" => "Retrieve torrents per categories"),
+            array("url" => "/api/{version}/torrent/details?url={string}",
+                "method" => "GET",
+                "description" => "Retrieve torrent's details")
         );
 
         $serializer = \JMS\Serializer\SerializerBuilder::create()->build();
@@ -119,5 +126,18 @@ class APIController
     public function statsTrackersAction($version){
         $serializer = \JMS\Serializer\SerializerBuilder::create()->build();
         return new Response($serializer->serialize($this->solrService->statsTrackersAction(), 'json'));
+    }
+
+    /**
+     * @Route("/api/{version}/torrent/{tracker}/details/{slug}", name="Retrieve details of a specific torrent")
+     * @Method("GET")
+     */
+    public function torrentDetail($version, $tracker, $slug){
+        $serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+
+        $torrent = $this->solrService->torrentAction($tracker, $slug);
+        $details = $this->crawlerTrackersService->getTorrentDetail($tracker, $torrent['url']);
+
+        return new Response($serializer->serialize($details, 'json'));
     }
 }

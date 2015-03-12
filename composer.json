@@ -6,6 +6,7 @@
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.6.*",
@@ -18,13 +19,12 @@
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
-        "doctrine/mongodb-odm": "1.0.*@dev",
-        "doctrine/mongodb-odm-bundle": "3.0.*@dev",
         "nelmio/solarium-bundle": "~2.1",
         "jms/serializer": "~0.16",
         "cocur/slugify": "~1.0",
         "jms/di-extra-bundle": "~1.1",
-        "suncat/mobile-detect-bundle": "0.10.*"
+        "suncat/mobile-detect-bundle": "0.10.*",
+        "michelre/crawler-bundle" : "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -50,6 +50,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
         ]
     },
+    "repositories": [{
+        "type" : "vcs",
+        "url"  : "https://github.com/michelre/crawler-trackers.git"
+    }],
     "config": {
         "bin-dir": "bin"
     },
