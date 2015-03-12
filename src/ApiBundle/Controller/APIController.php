@@ -54,7 +54,7 @@ class APIController
             array("url" => "/api/{version}/torrents/{category}[?offset={int}&limit={int}]",
                 "method" => "GET",
                 "description" => "Retrieve torrents per categories"),
-            array("url" => "/api/{version}/torrent/details?url={string}",
+            array("url" => "/api/{version}/torrent/{tracker}/details/{slug}",
                 "method" => "GET",
                 "description" => "Retrieve torrent's details")
         );
