@@ -122,6 +122,16 @@ class DefaultController
         return new Response($tpl);
     }
 
+    /**
+     * @Route("/torrents2transmission", name="torrents2transmission")
+     * @Method("GET")
+     */
+    public function torrents2TransmissionAction(){
+        $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/torrents2transmission.html.twig" : "default/torrents2transmission.html.twig" ;
+        $tpl = $this->templating->render($templatePath);
+        return new Response($tpl);
+    }
+
     public function headerAction(){
         $templatePath = ($this->mobileDetect->isMobile()) ? "mobile/header.html.twig" : "default/header.html.twig" ;
         $tpl = $this->templating->render($templatePath, $this->solrService->statsTrackersAction());

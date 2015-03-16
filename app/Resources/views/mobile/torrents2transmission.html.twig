@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% import  'macros.html.twig' as macros %}
+
+{% block title %} Telechargez depuis votre mobile {% endblock %}
+
+{% block head %}
+    <meta name="description" content="Téléchargez vos torrents depuis votre mobile. Grâce à Torrents2Transmission, retrouvez
+    les torrents de torrent-hunter et de T411."/>
+{% endblock %}
+
+{% block body %}
+    <div class="torrents2transmission-presentation-mobile row">
+        <div class="column large-5">
+            <iframe src='//www.appdemostore.com/embed?id=5129223807172608' width='305' height='616' frameborder='0'></iframe>
+        </div>
+        <div class="column large-7">
+            <h4>Torrents2Transmission</h4>
+            <a class="button" href="https://play.google.com/store/apps/details?id=com.torrent_hunter.torrents2transmission" target="_blank">Télécharger maintenant</a>
+            <ul class="fa-ul">
+                <li><i class="fa-li fa fa-2x fa-check"></i>Téléchargez vos torrents depuis votre mobile</li>
+                <li><i class="fa-li fa fa-2x fa-check"></i>Envoyez vos téléchargements vers seedbox</li>
+                <li><i class="fa-li fa fa-2x fa-check"></i>Accédez aux torrents de T411 et de Torrent Hunter</li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
