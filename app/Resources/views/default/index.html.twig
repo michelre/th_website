@@ -9,7 +9,6 @@
 
 {% block body %}
 
-    <h1>Top 100</h1>
     <div class="row full-width">
 
         <div class="large-3 columns">
@@ -17,6 +16,8 @@
         </div>
 
         <div class="large-7 columns">
+            <h1>Top 100</h1>
+            <hr/>
             {{ macros.torrents_table(torrents) }}
         </div>
 

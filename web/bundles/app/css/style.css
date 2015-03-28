@@ -204,6 +204,10 @@
     font-size: 40px;
 }
 
+#content .torrents-similar h2{
+    margin-bottom: 20px;
+}
+
 #header .mobile-form{
     height: 60px;
     font-size: 33px;
