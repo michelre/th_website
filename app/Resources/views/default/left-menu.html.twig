@@ -1,0 +1,103 @@
+<div class="panel white">
+    <div class="panel">
+        <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+            <h3>Catégories</h3>
+            <hr/>
+            <section class="section">
+                <div class="row">
+                    <i class="columns large-2 fa fa-star fa-2x"></i>
+                    <h4 class="columns large-8 Accueil"><a href="{{ path('homepage') }}">Top 100</a></h4>
+                </div>
+            </section>
+            <section class="section">
+                <div class="row">
+                    <i class="columns large-2 fa fa-film fa-2x"></i>
+                    <h4 class="columns large-8 Film"><a
+                                href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': 1}) }}">Film</a>
+                    </h4>
+                </div>
+            </section>
+            <section class="section">
+                <div class="row">
+                    <i class="columns large-2 fa fa-desktop fa-2x"></i>
+                    <h4 class="columns large-8 Série"><a
+                                href="{{ path('torrentsPerCategory', {'category': 'serie', 'offset': 1}) }}">Série</a>
+                    </h4>
+                </div>
+            </section>
+            <section class="section">
+                <div class="row">
+                    <i class="columns large-2 fa fa-music fa-2x"></i>
+                    <h4 class="columns large-8 Musique"><a
+                                href="{{ path('torrentsPerCategory', {'category': 'music', 'offset': 1}) }}">Musique</a>
+                    </h4>
+                </div>
+            </section>
+            <section class="section">
+                <div class="row">
+                    <i class="columns large-2 fa fa-gamepad fa-2x"></i>
+                    <h4 class="columns large-8 Jeux"><a
+                                href="{{ path('torrentsPerCategory', {'category': 'game', 'offset': 1}) }}">Jeux</a>
+                    </h4>
+                </div>
+            </section>
+            <section class="section">
+                <div class="row">
+                    <i class="columns large-2 fa fa-windows fa-2x"></i>
+                    <h4 class="columns large-8 Application"><a
+                                href="{{ path('torrentsPerCategory', {'category': 'application', 'offset': 1}) }}">Application</a>
+                    </h4>
+                </div>
+            </section>
+            <section class="section">
+                <div class="row">
+                    <i class="columns large-2 fa fa-book fa-2x"></i>
+                    <h4 class="columns large-8 Application"><a
+                                href="{{ path('torrentsPerCategory', {'category': 'ebook', 'offset': 1}) }}">Ebook</a>
+                    </h4>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Partagez</h3>
+        <hr/>
+        <div class="fb-like" data-href="http://www.torrent-hunter.com" data-layout="box_count" data-action="like"
+             data-show-faces="true" data-share="true"></div>
+    </div>
+
+    <div class="panel">
+        <h3>Mobilité</h3>
+        <hr/>
+        <div class="row">
+            <img class="column large-4" src="{{ asset('bundles/app/image/nexus-5.png') }}" alt="mobile"/>
+
+            <p class="column large-8">Téléchargez vos torrents en toute simplicité grâce à l'application mobile</p>
+        </div>
+        <a class="button secondary" href="{{ path('torrents2transmission') }}">Plus d'infos</a>
+    </div>
+    <div class="panel stats">
+        <h3>Statistiques: </h3>
+        <hr/>
+        <ul>
+            {% for stat in stats %}
+                <li>
+                    <div class="row stat">
+                        <img class="columns large-5" alt="{{ stat.tracker }}" title="{{ stat.tracker }}"
+                             src="{{ asset('bundles/app/image/'~ stat.tracker ~'-thumb.jpg' ) }}"/>
+                        <small class="columns large-7">{{ stat.nb | number_format(0, '.', ' ') }}
+                            ({{ stat.lastIndexationDate | date("d/m/Y", "Europe/Paris") }})
+                        </small>
+                    </div>
+                </li>
+            {% endfor %}
+            <li>
+                <div class="row">
+                    <span class="columns large-5">Total</span>
+                    <small class="columns large-7">{{ nbTotal | number_format(0, '.', ' ') }} torrents</small>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

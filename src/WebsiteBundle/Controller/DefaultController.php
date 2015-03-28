@@ -32,7 +32,7 @@ class DefaultController extends Controller
         $torrents = $utils->makeTorrentsObject($_torrents);
         $templatePath = ($mobileDetect->isMobile()) ? "mobile/index.html.twig" : "default/index.html.twig" ;
 
-        return $this->render($templatePath, array("torrents" => $torrents));
+        return $this->render($templatePath, array("torrents" => $torrents, "stats" => $solrService->statsTrackersAction()));
     }
 
     /**
@@ -132,6 +132,11 @@ class DefaultController extends Controller
         $mobileDetect = $this->get('mobile_detect.mobile_detector');
         $templatePath = ($mobileDetect->isMobile()) ? "mobile/footer.html.twig" : "default/footer.html.twig" ;
         return $this->render($templatePath, $solrService->statsTrackersAction());
+    }
+
+    public function leftMenuAction(){
+        $solrService = $this->get('torrenthunter.solr_service');
+        return $this->render("default/left-menu.html.twig", $solrService->statsTrackersAction());
     }
 
 }

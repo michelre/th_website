@@ -1,13 +1,13 @@
-<div class="row">
-    <div class="column small-4">
+<div class="row full-width">
+    <div class="column large-4">
         <img alt="logo" title="logo" src="{{ asset('bundles/app/image/logo-bw.png') }}"/>
     </div>
-    <div class="column small-8">
+    <div class="column large-7">
         <div>
             <form action="{{ path('search') }}" method="GET">
                 <div class="row collapse">
                     <div class="small-11 columns">
-                        <input type="text" class="no-clear search-typeahead typeahead" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
+                        <input type="text" class="search no-clear search-typeahead typeahead" placeholder="Wrong Turn 6, 12 years a slave..." name="query"/>
                     </div>
                     <div class="small-1 columns">
                         <button type="submit" class="button radius postfix"><i class="fa fa-search"></i></button>
@@ -17,19 +17,4 @@
         </div>
     </div>
 </div>
-<div class="panel radius row">
-    <img class="column large-1" src="{{ asset('bundles/app/image/nexus-5.png') }}" alt="mobile"/>
-    <h4 class="column large-9">Téléchargez vos torrents en toute simplicité grâce à l'application mobile</h4>
-    <a class="button secondary column large-2" href="{{ path('torrents2transmission') }}">Plus d'infos</a>
-</div>
-<nav id="categories" class="row">
-    <ul class="inline-list">
-        <li><a href="{{ path('homepage') }}">Accueil</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'movie', 'offset': 1}) }}">Film</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'serie', 'offset': 1}) }}">Série</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'music', 'offset': 1}) }}">Musique</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'game', 'offset': 1}) }}">Jeux</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'application', 'offset': 1}) }}">Application</a></li>
-        <li><a href="{{ path('torrentsPerCategory', {'category': 'ebook', 'offset': 1}) }}">Ebook</a></li>
-    </ul>
-</nav>
+<hr/>

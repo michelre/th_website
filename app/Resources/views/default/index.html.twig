@@ -10,6 +10,21 @@
 {% block body %}
 
     <h1>Top 100</h1>
-    {{ macros.torrents_table(torrents) }}
+    <div class="row full-width">
+
+        <div class="large-3 columns">
+            {{ render(controller('WebsiteBundle:Default:leftMenu')) }}
+        </div>
+
+        <div class="large-7 columns">
+            {{ macros.torrents_table(torrents) }}
+        </div>
+
+        <aside class="large-2 columns hide-for-small">
+            <script src="http://www.pubdirecte.com/script/banniere.php?id=104646&ref=69514"></script>
+            <script src="http://www.pubdirecte.com/script/banniere.php?id=104647&ref=69514"></script>
+        </aside>
+
+    </div>
 
 {% endblock %}

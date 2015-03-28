@@ -11,29 +11,41 @@
 {% block body %}
     <h1>{{ categoryName }}</h1>
 
-    {{ macros.torrents_table(torrents) }}
+    <div class="row full-width">
 
-    <div class="pagination-centered">
-        <ul class="pagination">
-            {% if previousPage == 0 %}
-                <li class="unavailable arrow"><span>&laquo;</span></li>
-            {% else %}
-                <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': previousPage}) }}">&laquo;</a></li>
-            {% endif %}
-            {%  for page in pages %}
-                {% if page == 0 %}
-                    <li class="unavailable"><span>&hellip;</span></li>
-                {% else %}
-                    <li><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': page}) }}">{{ page }}</a></li>
-                {% endif %}
-            {% endfor %}
-            {% if nextPage > nbMaxPages %}
-                <li class="unavailable arrow"><span>&raquo;</span></li>
-            {% else %}
-                <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': nextPage}) }}">&raquo;</a></li>
-            {% endif %}
-        </ul>
+        <div class="large-3 columns">
+            {{ render(controller('WebsiteBundle:Default:leftMenu')) }}
+        </div>
+
+        <div class="large-7 columns">
+            {{ macros.torrents_table(torrents) }}
+            <div class="pagination-centered">
+                <ul class="pagination">
+                    {% if previousPage == 0 %}
+                        <li class="unavailable arrow"><span>&laquo;</span></li>
+                    {% else %}
+                        <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': previousPage}) }}">&laquo;</a></li>
+                    {% endif %}
+                    {%  for page in pages %}
+                        {% if page == 0 %}
+                            <li class="unavailable"><span>&hellip;</span></li>
+                        {% else %}
+                            <li><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': page}) }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if nextPage > nbMaxPages %}
+                        <li class="unavailable arrow"><span>&raquo;</span></li>
+                    {% else %}
+                        <li class="arrow"><a href="{{ path('torrentsPerCategory', {'category': category, 'offset': nextPage}) }}">&raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <aside class="large-2 columns hide-for-small">
+            <script src="http://www.pubdirecte.com/script/banniere.php?id=104646&ref=69514"></script>
+            <script src="http://www.pubdirecte.com/script/banniere.php?id=104647&ref=69514"></script>
+        </aside>
     </div>
-
 
 {% endblock %}

@@ -1,3 +1,9 @@
+.row.full-width{
+    width: 100%;
+    max-width: 100%;
+}
+
+
 #header{
     padding:10px;
     margin-bottom: 20px;
@@ -11,9 +17,15 @@
     margin-top: 18px;
 }
 
+#header .search{
+    height: 45px;
+    font-weight: 500;
+    font-size: 16px;
+}
 
 #header button{
     background-color: #8F8F8F;
+    height: 45px;
 }
 
 #header #categories{
@@ -52,10 +64,6 @@
     font-size: 30px;
 }
 
-#footer{
-    margin-top: 10px;
-}
-
 #content h1{
     margin-left: 35px;
 }
@@ -80,12 +88,21 @@
     margin-right: 5px;
 }
 
-#content .table-container .fa-arrow-up, #content .torrent-list-mobile .fa-arrow-up{
+#content .fa-arrow-up, #content .torrent-list-mobile .fa-arrow-up{
     color: #61c66b;
+    display: inline-block;
+    width: 20%;
 }
 
-#content .table-container .fa-arrow-down, #content .torrent-list-mobile .fa-arrow-down{
+#content .fa-arrow-down, #content .torrent-list-mobile .fa-arrow-down{
     color: #c65045;
+    display: inline-block;
+    width: 20%;
+}
+
+#content .seeders, #content .leechers{
+    width: 70%;
+    display: inline-block;
 }
 
 #content .pricing-table{
@@ -117,13 +134,6 @@
     padding: 10px;
 }
 
-#footer{
-    border-top: 2px solid #8F8F8F;
-}
-
-#footer{
-    color: #8F8F8F;
-}
 
 #footer ul{
     list-style: none;
@@ -208,6 +218,32 @@
     font-size: 40px;
 }
 
-#header .pub-header{
-    margin-top: 13px;
+#footer{
+    border-top: 1px solid #DDDDDD;
+    padding-top: 10px;
+}
+
+.panel.white{
+    background-color: #ffffff;
+}
+
+.vertical-nav section a, .vertical-nav section a h4{
+    color: grey;
+}
+
+.vertical-nav section{
+    min-height: 50px;
+}
+
+.panel.stats li{
+    list-style: none;
+}
+
+.panel.stats .stat{
+    min-height: 50px;
+}
+
+.panel.stats .stat img{
+    min-height: 20px;
+    max-height: 30px;
 }

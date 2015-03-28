@@ -1,27 +1,31 @@
 {% macro torrents_table(torrents) %}
-    <div class="table-container row">
-        <div class="column small-12">
-            <table class="column small-12">
-                <thead>
-                <th>Catégorie</th>
-                <th>Titre</th>
-                <th>Taille</th>
-                <th>Seeders</th>
-                <th>Leechers</th>
-                <th>Tracker</th>
-                </thead>
-                {% for data in torrents %}
-                    <tr>
-                        <td class="text-center"><i title="{{ data.torrent.category }}" class="{{ data.categoryIcon }} fa-2x"></i></td>
-                        <td><a href="{{ path('details', {'tracker': data.torrent.tracker, 'slug': data.torrent.slug}) }}">{{ data.torrent.title }}</a></td>
-                        <td>{{ data.torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</td>
-                        <td><i class="fa fa-arrow-up"></i>{{ data.torrent.seeds }}</td>
-                        <td><i class="fa fa-arrow-down"></i>{{ data.torrent.leechs }}</td>
-                        <td><img alt="{{ data.torrent.tracker }}" title="{{ data.torrent.tracker }}" src="{{ asset('bundles/app/image/'~ data.torrent.tracker ~'-thumb.jpg' ) }}"/></td>
-                    </tr>
-                {% endfor %}
-            </table>
+    <div class="row">
+        {% for data in torrents %}
+        <div class="large-2 columns small-3"><i title="{{ data.torrent.category }}" class="{{ data.categoryIcon }} fa-2x"></i></div>
+        <div class="large-10 columns">
+            <p><strong>
+                <a href="{{ path('details', {'tracker': data.torrent.tracker, 'slug': data.torrent.slug}) }}">{{ data.torrent.title }}</a>
+            </strong></p>
+            <div class="row">
+                <div class="column large-6">
+                    <strong>{{ data.torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</strong>
+                </div>
+                <div class="column large-6">
+                    <div class="row">
+                        <div class="column large-6">
+                            <i class="fa fa-arrow-up"></i>
+                            <span class="seeders">{{ data.torrent.seeds }}</span>
+                        </div>
+                        <div class="column large-6">
+                            <i class="fa fa-arrow-down"></i>
+                            <span class="leechers">{{ data.torrent.leechs }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <hr/>
+        {% endfor %}
     </div>
 {% endmacro %}
 
