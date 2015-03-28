@@ -1781,12 +1781,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/michelre/th_solr.git",
-                "reference": "4c3360ee3d48742f90019942deb184fe9a5efc06"
+                "reference": "4e91d3c3f5f70f3c27be7be32fa2ae4b02af09c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/michelre/th_solr/zipball/4c3360ee3d48742f90019942deb184fe9a5efc06",
-                "reference": "4c3360ee3d48742f90019942deb184fe9a5efc06",
+                "url": "https://api.github.com/repos/michelre/th_solr/zipball/4e91d3c3f5f70f3c27be7be32fa2ae4b02af09c2",
+                "reference": "4e91d3c3f5f70f3c27be7be32fa2ae4b02af09c2",
                 "shasum": ""
             },
             "require": {
@@ -1861,10 +1861,10 @@
             ],
             "description": "Solr bundle necessary to search into Solr collection of Torrent-hunter",
             "support": {
-                "source": "https://github.com/michelre/th_solr/tree/master",
+                "source": "https://github.com/michelre/th_solr/tree/1.0.0",
                 "issues": "https://github.com/michelre/th_solr/issues"
             },
-            "time": "2015-03-28 09:03:43"
+            "time": "2015-03-28 13:16:15"
         },
         {
             "name": "twig/extensions",
