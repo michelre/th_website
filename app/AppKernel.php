@@ -15,13 +15,9 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Nelmio\SolariumBundle\NelmioSolariumBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-            new JMS\AopBundle\JMSAopBundle(),
-            new ApiBundle\ApiBundle(),
             new WebsiteBundle\WebsiteBundle(),
-            new SolrServiceBundle\SolrServiceBundle(),
+            new TorrentHunter\Bundle\SolrBundle\TorrentHunterSolrBundle(),
             new SunCat\MobileDetectBundle\MobileDetectBundle()
         );
 

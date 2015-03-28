@@ -2,7 +2,7 @@
     <div class="column small-4">
         <img alt="logo" title="logo" src="{{ asset('bundles/app/image/logo-bw.png') }}"/>
     </div>
-    <div class="column small-5">
+    <div class="column small-8">
         <div>
             <form action="{{ path('search') }}" method="GET">
                 <div class="row collapse">
@@ -16,9 +16,11 @@
             </form>
         </div>
     </div>
-    <div class="column small-3 pub-header">
-        <script src="http://www.pubdirecte.com/script/banniere.php?id=103842&ref=69514"></script>
-    </div>
+</div>
+<div class="panel radius row">
+    <img class="column large-1" src="{{ asset('bundles/app/image/nexus-5.png') }}" alt="mobile"/>
+    <h4 class="column large-9">Téléchargez vos torrents en toute simplicité grâce à l'application mobile</h4>
+    <a class="button secondary column large-2" href="{{ path('torrents2transmission') }}">Plus d'infos</a>
 </div>
 <nav id="categories" class="row">
     <ul class="inline-list">

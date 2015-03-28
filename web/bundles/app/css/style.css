@@ -36,6 +36,22 @@
     margin-left: 5em;
 }
 
+#header .panel h4, #header .panel a{
+    color: rgb(143, 143, 143)
+}
+
+.torrents2transmission-presentation ul{
+    line-height: 50px;
+}
+
+.torrents2transmission-mobile *{
+    font-size: 40px;
+}
+
+.torrents2transmission-presentation-mobile *{
+    font-size: 30px;
+}
+
 #footer{
     margin-top: 10px;
 }
