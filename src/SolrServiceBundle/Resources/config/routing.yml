@@ -1,3 +1,0 @@
-solar_service_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: SolarServiceBundle:Default:index }

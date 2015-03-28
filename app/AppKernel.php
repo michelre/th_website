@@ -16,13 +16,9 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Nelmio\SolariumBundle\NelmioSolariumBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-            new JMS\AopBundle\JMSAopBundle(),
-            new ApiBundle\ApiBundle(),
             new WebsiteBundle\WebsiteBundle(),
-            new SolrServiceBundle\SolrServiceBundle(),
-            new SunCat\MobileDetectBundle\MobileDetectBundle(),
-            new CrawlerBundle\CrawlerBundle()
+            new TorrentHunter\Bundle\SolrBundle\TorrentHunterSolrBundle(),
+            new SunCat\MobileDetectBundle\MobileDetectBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
