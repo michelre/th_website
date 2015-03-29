@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f4285d47ae2a473459562b6fdbf78482",
+    "hash": "6fe025dd319c80296f207884857421d9",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1777,16 +1777,16 @@
         },
         {
             "name": "torrent-hunter/solr-bundle",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/michelre/th_solr.git",
-                "reference": "4e91d3c3f5f70f3c27be7be32fa2ae4b02af09c2"
+                "reference": "cfa1a1c0f5ea9fb430c3bcf7bef508a6be3cc8ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/michelre/th_solr/zipball/4e91d3c3f5f70f3c27be7be32fa2ae4b02af09c2",
-                "reference": "4e91d3c3f5f70f3c27be7be32fa2ae4b02af09c2",
+                "url": "https://api.github.com/repos/michelre/th_solr/zipball/cfa1a1c0f5ea9fb430c3bcf7bef508a6be3cc8ef",
+                "reference": "cfa1a1c0f5ea9fb430c3bcf7bef508a6be3cc8ef",
                 "shasum": ""
             },
             "require": {
@@ -1861,10 +1861,10 @@
             ],
             "description": "Solr bundle necessary to search into Solr collection of Torrent-hunter",
             "support": {
-                "source": "https://github.com/michelre/th_solr/tree/1.0.0",
+                "source": "https://github.com/michelre/th_solr/tree/1.0.1",
                 "issues": "https://github.com/michelre/th_solr/issues"
             },
-            "time": "2015-03-28 13:16:15"
+            "time": "2015-03-29 21:14:28"
         },
         {
             "name": "twig/extensions",

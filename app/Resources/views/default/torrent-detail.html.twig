@@ -25,7 +25,11 @@
                 <li class="bullet-item">{{ torrent.seeds }} seeders</li>
                 <li class="bullet-item">{{ torrent.leechs }} leechers</li>
                 <li class="description"><span>Lien original: </span><a href="{{ torrent.url }}">{{ torrent.url }}</a></li>
-                <li class="cta-button"><a rel="no-follow" href="{{ torrent.downloadLink }}" class="button" download>Télécharger</a></li>
+                {% if torrent.visible %}
+                    <li class="cta-button"><a rel="no-follow" href="{{ torrent.downloadLink }}" class="button" download>Télécharger</a></li>
+                {% else %}
+                    <li class="bullet-item"><b>Téléchargement inaccessible</b></li>
+                {% endif %}
             </ul>
 
             <hr/>
