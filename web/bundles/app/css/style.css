@@ -251,3 +251,7 @@
     min-height: 20px;
     max-height: 30px;
 }
+
+.panel.info p{
+    color: #ff3052;
+}
