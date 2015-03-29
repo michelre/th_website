@@ -1781,12 +1781,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/michelre/th_solr.git",
-                "reference": "cfa1a1c0f5ea9fb430c3bcf7bef508a6be3cc8ef"
+                "reference": "8cc2b13468e768a11e3507385bb78406076ba643"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/michelre/th_solr/zipball/cfa1a1c0f5ea9fb430c3bcf7bef508a6be3cc8ef",
-                "reference": "cfa1a1c0f5ea9fb430c3bcf7bef508a6be3cc8ef",
+                "url": "https://api.github.com/repos/michelre/th_solr/zipball/8cc2b13468e768a11e3507385bb78406076ba643",
+                "reference": "8cc2b13468e768a11e3507385bb78406076ba643",
                 "shasum": ""
             },
             "require": {
@@ -1864,7 +1864,7 @@
                 "source": "https://github.com/michelre/th_solr/tree/1.0.1",
                 "issues": "https://github.com/michelre/th_solr/issues"
             },
-            "time": "2015-03-29 21:14:28"
+            "time": "2015-03-29 22:17:11"
         },
         {
             "name": "twig/extensions",
