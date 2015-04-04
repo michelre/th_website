@@ -1,7 +1,7 @@
 function Bootstrap(){
     var engine = new Bloodhound({
         remote: {
-            url: 'http://www.torrent-hunter.com/api/v1/search?query=%QUERY&offset=0&limit=10',
+            url: 'http://www.torrent-hunter.com:81/api/v1/search?query=%QUERY&offset=0&limit=10',
             filter: function(resp){
                 return resp.torrents.map(function(t){
                     return {
