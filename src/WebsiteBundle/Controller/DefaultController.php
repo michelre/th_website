@@ -4,6 +4,7 @@ namespace WebsiteBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -71,15 +72,22 @@ class DefaultController extends Controller
         $solrService = $this->get('torrenthunter.solr_service');
         $mobileDetect = $this->get('mobile_detect.mobile_detector');
         $utils = new Utils();
-        $torrent = $solrService->torrentAction($tracker, $slug);
+        try{
+            $torrent = $solrService->torrentAction($tracker, $slug);
+            $formattedTitle = $utils->formatTitle($torrent['title']);
+        }catch (Exception $e){
+            $torrent = array();
+            $formattedTitle = "";
+        }
         $moreLikeThis = $solrService->searchSimilarAction($slug);
         $similarTorrents = $utils->makeTorrentsObject($moreLikeThis);
 
         $templatePath = ($mobileDetect->isMobile()) ? "mobile/torrent-detail.html.twig" : "default/torrent-detail.html.twig" ;
         return $this->render($templatePath,
             array("torrent" => $torrent,
-                  "similarTorrents" => $similarTorrents,
-                  "formattedTitle" => $utils->formatTitle($torrent['title'])));
+                "similarTorrents" => $similarTorrents,
+                "formattedTitle" => $formattedTitle
+            ));
     }
 
     /**

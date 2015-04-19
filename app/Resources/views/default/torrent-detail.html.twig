@@ -1,10 +1,21 @@
 {% extends 'base.html.twig' %}
 {% import  'macros.html.twig' as macros %}
 
-{% block title %} Torrent de {{ formattedTitle | title }} à telecharger {% endblock %}
+{% block title %}
+    {% if torrent is empty %}
+        Torrent à telecharger
+    {% else %}
+        Torrent de {{ formattedTitle | title }} à telecharger
+    {% endif %}
+
+{% endblock %}
 
 {% block head %}
-    <meta name="description" content="Téléchargez {{ torrent.title }} ainsi que d'autres torrents"/>
+    {% if torrent is empty %}
+        <meta name="description" content="Téléchargez de nombreux torrents grâce à notre annuaire"/>
+    {% else %}
+        <meta name="description" content="Téléchargez {{ formattedTitle | title }} ainsi que d'autres torrents"/>
+    {% endif %}
 {% endblock %}
 
 {% block body %}
@@ -16,6 +27,9 @@
         </div>
 
         <div class="column large-7">
+            {% if torrent is empty %}
+                <b>Torrent introuvable</b>
+            {% else %}
             <h1>{{ torrent.title }}</h1>
             <ul class="pricing-table">
                 <li class="title">Détails</li>
@@ -31,6 +45,7 @@
                     <li class="bullet-item"><b>Téléchargement inaccessible</b></li>
                 {% endif %}
             </ul>
+            {% endif %}
 
             <hr/>
 

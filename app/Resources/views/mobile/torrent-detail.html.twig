@@ -1,33 +1,47 @@
 {% extends 'base.html.twig' %}
 {% import  'macros.html.twig' as macros %}
 
-{% block title %} Torrent de {{ formattedTitle | title }} à telecharger {% endblock %}
+{% block title %}
+    {% if torrent is empty %}
+        Torrent à telecharger
+    {% else %}
+        Torrent de {{ formattedTitle | title }} à telecharger
+    {% endif %}
+
+{% endblock %}
 
 {% block head %}
-    <meta name="description" content="Téléchargez {{ torrent.title }} ainsi que d'autres torrents"/>
+    {% if torrent is empty %}
+        <meta name="description" content="Téléchargez de nombreux torrents grâce à notre annuaire"/>
+    {% else %}
+        <meta name="description" content="Téléchargez {{ formattedTitle | title }} ainsi que d'autres torrents"/>
+    {% endif %}
 {% endblock %}
 
 {% block body %}
-    <h1 class="download-title">{{ torrent.title }}</h1>
-    <ul class="pricing-table">
-        <li class="title">Détails</li>
-        <li class="price">{{ torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</li>
-        <li class="description">Tracker: {{ torrent.tracker }}</li>
-        <li class="bullet-item">Catégorie: {{ torrent.category }}</li>
-        <li class="bullet-item">{{ torrent.seeds }} seeders</li>
-        <li class="bullet-item">{{ torrent.leechs }} leechers</li>
-        <li class="description"><span>Lien original: </span><a href="{{ torrent.url }}">{{ torrent.url }}</a></li>
-        {% if torrent.visible %}
-            <li class="cta-button"><a rel="no-follow" href="{{ torrent.downloadLink }}" class="button" download>Télécharger</a></li>
-        {% else %}
-            <li class="bullet-item"><b>Téléchargement inaccessible</b></li>
-        {% endif %}
-    </ul>
+    {% if torrent is empty %}
+        <b>&nbsp;Torrent introuvable</b>
+    {% else %}
+        <h1 class="download-title">{{ torrent.title }}</h1>
+        <ul class="pricing-table">
+            <li class="title">Détails</li>
+            <li class="price">{{ torrent.size | replace({'Mo':'MB', 'Go':'GB', 'Ko':'KB', 'Mb': 'MB', 'Gb': 'GB', 'Kb':'KB'}) }}</li>
+            <li class="description">Tracker: {{ torrent.tracker }}</li>
+            <li class="bullet-item">Catégorie: {{ torrent.category }}</li>
+            <li class="bullet-item">{{ torrent.seeds }} seeders</li>
+            <li class="bullet-item">{{ torrent.leechs }} leechers</li>
+            <li class="description"><span>Lien original: </span><a href="{{ torrent.url }}">{{ torrent.url }}</a></li>
+            {% if torrent.visible %}
+                <li class="cta-button"><a rel="no-follow" href="{{ torrent.downloadLink }}" class="button" download>Télécharger</a></li>
+            {% else %}
+                <li class="bullet-item"><b>Téléchargement inaccessible</b></li>
+            {% endif %}
+        </ul>
+    {% endif %}
 
     <div class="torrents-similar">
         <h2>Ces fichiers peuvent vous intéresser:</h2>
         {{ macros.torrents_table_mobile(similarTorrents) }}
-
     </div>
 
 {% endblock %}
