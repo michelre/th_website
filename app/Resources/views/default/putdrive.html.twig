@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% import  'macros.html.twig' as macros %}
+
+{% block title %} Téléchargez et stockez vos fichiers avec Putdrive {% endblock %}
+
+{% block head %}
+    <meta name="description" content="Téléchargez et stockez vos fichiers grâce à Putdrive. Grâce à Putdrive, vos téléchargements
+    seront rapides et totalement anonymes."/>
+{% endblock %}
+
+{% block body %}
+    <div class="putdrive-presentation full-width row">
+
+        <div class="large-3 columns">
+            {{ render(controller('WebsiteBundle:Default:leftMenu')) }}
+        </div>
+
+        <div class="large-9 columns">
+            <div class="first-column column large-5">
+                <a href="http://www.putdrive.com/?cref=torrent-hunter" target="_blank">
+                    <img title="putdrive logo" src="{{ asset('bundles/app/image/putdrive-logo.png') }}"/>
+                </a>
+                <a href="http://www.putdrive.com/?cref=torrent-hunter" target="_blank">
+                    <img title="putdrive presentation" src="{{ asset('bundles/app/image/putdrive-presentation.jpg') }}"/>
+                </a>
+            </div>
+            <div class="column large-6">
+                <h4>Putdrive</h4>
+                <i>
+                    Putdrive.com vous permet de télécharger et stocker vos fichiers de manière <b>rapide</b> et totalement <b>anonyme</b>.
+
+                </i>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-2x fa-hand-o-right"></i>Accédez à plus de 80 hébergeurs de fichiers comme filecloud, filefactory, rapidfileshare...</li>
+                    <li><i class="fa-li fa fa-2x fa-hand-o-right"></i>Téléchargez anonymement vos torrents et uplodez directement vos fichiers chez Putdrive</li>
+                    <li><i class="fa-li fa fa-2x fa-hand-o-right"></i>Téléchargez les vidéos disponibles en streaming sur YouTube, Dailymotion, Metacafe...</li>
+                    <li><i class="fa-li fa fa-2x fa-hand-o-right"></i>100Go disponible gratuitement dès votre inscription</li>
+                    <li><i class="fa-li fa fa-2x fa-hand-o-right"></i>Convertissez les vidéos YouTube en MP3 de manière très simple</li>
+                    <li><i class="fa-li fa fa-2x fa-hand-o-right"></i>Usenet - Téléchargez les fichiers NZB</li>
+                </ul>
+                <a class="button " href="http://www.putdrive.com/?cref=torrent-hunter" target="_blank">Inscrivez-vous</a>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

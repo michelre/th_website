@@ -60,8 +60,13 @@
     font-size: 40px;
 }
 
-.torrents2transmission-presentation-mobile *{
+.torrents2transmission-presentation-mobile *, .putdrive-presentation-mobile *{
     font-size: 30px;
+}
+
+.putdrive-presentation li{
+    line-height: 30px;
+    margin-bottom: 10px;
 }
 
 #content h1{

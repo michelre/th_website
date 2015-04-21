@@ -128,6 +128,16 @@ class DefaultController extends Controller
         return $this->render($templatePath);
     }
 
+    /**
+     * @Route("/putdrive", name="putdrive")
+     * @Method("GET")
+     */
+    public function putdriveAction(){
+        $mobileDetect = $this->get('mobile_detect.mobile_detector');
+        $templatePath = ($mobileDetect->isMobile()) ? "mobile/putdrive.html.twig" : "default/putdrive.html.twig" ;
+        return $this->render($templatePath);
+    }
+
     public function headerAction(){
         $solrService = $this->get('torrenthunter.solr_service');
         $mobileDetect = $this->get('mobile_detect.mobile_detector');
